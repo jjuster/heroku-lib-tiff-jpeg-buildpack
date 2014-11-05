@@ -2,7 +2,7 @@
 BUILD_DIR=$1
 
 REMOTE=https://dl.dropboxusercontent.com/s/lio23umd2vrb871/lib-tiff-jpeg.tar.gz
-INSTALL_DIR=$BUILD_DIR/vendor/lib-tiff-jpeg/
+INSTALL_DIR=$BUILD_DIR/vendor/
 
 VENDOR_DIR=${HOME}/vendor/lib-tiff-jpeg
 
