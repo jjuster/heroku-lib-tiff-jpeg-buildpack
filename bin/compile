@@ -1,0 +1,19 @@
+#!/bin/bash
+BUILD_DIR=$1
+
+REMOTE=https://dl.dropboxusercontent.com/s/lio23umd2vrb871/lib-tiff-jpeg.tar.gz
+INSTALL_DIR=$BUILD_DIR/vendor/lib-tiff-jpeg/
+
+VENDOR_DIR=${HOME}/vendor/lib-tiff-jpeg
+
+ENVSCRIPT=$BUILD_DIR/.profile.d/lib-tiff-jpeg.sh
+
+
+echo "Getting libtiff and libjpeg binaries from $REMOTE..."
+mkdir -p $INSTALL_DIR
+curl $REMOTE -o - | tar -xz -C $INSTALL_DIR -f -
+
+echo "Building runtime environment for libtiff and libjpeg"
+mkdir -p $BUILD_DIR/.profile.d
+echo "export PATH=\"$VENDOR_DIR/bin:\$PATH\"" > $ENVSCRIPT
+echo "export LD_LIBRARY_PATH=\"$VENDOR_DIR/lib:\$LD_LIBRARY_PATH\"" >> $ENVSCRIPT
